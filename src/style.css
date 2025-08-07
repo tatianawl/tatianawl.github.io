@@ -1,0 +1,298 @@
+
+:root {
+  /* Background Colors */
+  --bg-primary: #e6f3ff;
+  --bg-gradient-1: #b3d9ff;
+  --bg-gradient-2: #cce7ff;
+  --bg-gradient-3: #f0f8ff;
+  
+  /* Text Colors */
+  --text-primary: #1a1a1a;
+  --text-white: #ffffff;
+  --text-black: #000000;
+  
+  /* Button Colors */
+  --btn-bg: rgba(30, 58, 138, 0.8);
+  --btn-bg-hover: rgba(255, 255, 255, 0.9);
+  --btn-text: #ffffff;
+  --btn-text-hover: #1e3a8a;
+  
+  /* Shadow Colors */
+  --shadow-light: rgba(0, 0, 0, 0.2);
+  --shadow-medium: rgba(0, 0, 0, 0.3);
+  
+  /* Sizes */
+  --title-size: 4rem;
+  --btn-size: 1.2rem;
+  --icon-size: 1.5rem;
+}
+
+/* Reset and base styles */
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Dynamic aesthetic background image using gradients and shapes */
+body::before {
+  content: "";
+  position: fixed;
+  top: -100px;
+  left: -100px;
+  width: 120vw;
+  height: 120vh;
+  z-index: 0;
+  background: 
+    radial-gradient(circle at 20% 30%, var(--bg-gradient-1) 0%, transparent 60%),
+    radial-gradient(circle at 80% 70%, var(--bg-gradient-2) 0%, transparent 70%),
+    linear-gradient(120deg, var(--bg-primary) 60%, var(--bg-gradient-3) 100%);
+  animation: oceanFlow 15s ease-in-out infinite alternate;
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+@keyframes oceanFlow {
+  0% { transform: translate(-20px, -15px) rotate(0deg); }
+  100% { transform: translate(20px, 15px) rotate(2deg); }
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  z-index: 1;
+}
+
+.site-title {
+  font-size: var(--title-size);
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  margin: 0 0 2rem 0;
+  text-align: center;
+  text-shadow: 0 4px 24px var(--shadow-medium);
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+/*
+
+.btn {
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 1rem 2rem;
+  border-radius: 32px;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  box-shadow: 0 2px 12px var(--shadow-light);
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+  font-size: var(--btn-size);
+  user-select: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.btn i {
+  font-size: var(--icon-size);
+}*/
+
+/* Add this for debugging - you can remove it later */
+/*
+.btn {
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 1rem 2rem;
+  border-radius: 32px;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  box-shadow: 0 2px 12px var(--shadow-light);
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+  font-size: var(--btn-size);
+  user-select: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+
+  min-width: 150px;
+  min-height: 50px;
+}
+
+.btn i {
+  font-size: var(--icon-size);
+ 
+  color: inherit;
+}
+
+.btn:hover {
+  background: var(--btn-bg-hover);
+  color: var(--btn-text-hover);
+  box-shadow: 0 4px 18px var(--shadow-medium);
+}
+*/
+
+.btn {
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 1rem 2rem;
+  border-radius: 32px;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  box-shadow: 0 8px 25px rgba(30, 58, 138, 0.15);
+  transition: all 0.3s ease;
+  font-size: var(--btn-size);
+  user-select: none;
+  border: 2px solid rgba(30, 58, 138, 0.1);
+  outline: none;
+  cursor: pointer;
+  min-width: 150px;
+  min-height: 50px;
+  /* Force hardware acceleration for smoother transitions */
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+.btn i {
+  font-size: var(--icon-size);
+  color: inherit;
+  transition: transform 0.3s ease;
+}
+
+.btn:hover {
+  background: var(--btn-bg-hover);
+  color: var(--btn-text-hover);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 35px rgba(30, 58, 138, 0.25);
+
+}
+
+.btn:hover i {
+  transform: scale(1.1);
+}
+
+.btn:active {
+  transform: translateY(-2px);
+}
+
+/* PROJECTS PAGE  */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  padding: 0 1rem;
+}
+
+.project-card {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 8px 25px rgba(30, 58, 138, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid rgba(30, 58, 138, 0.1);
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 35px rgba(30, 58, 138, 0.25);
+}
+
+.project-icon {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.project-icon i {
+  font-size: 3rem;
+  color: var(--btn-bg);
+}
+
+.project-card h3 {
+  font-size: 1.5rem;
+  color: #1e3a8a;
+  margin: 0 0 1rem 0;
+  text-align: center;
+}
+
+.project-card p {
+  color: #4a5568;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.tech-tag {
+  background: var(--bg-gradient-1);
+  color: #1e3a8a;
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.project-links {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.project-btn {
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.project-btn:hover {
+  background: var(--btn-bg-hover);
+  color: var(--btn-text-hover);
+}
+
+.back-button {
+  text-align: center;
+}
+
+/* Responsive adjustments for projects */
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .project-card {
+    padding: 1.5rem;
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "TatiPortfolio",
+  "version": "1.0.0",
+  "description": "A modern portfolio website for Tatiana Wang showcasing projects and links to GitHub and LinkedIn.",
+  "main": "src/index.html",
+  "scripts": {
+    "start": "live-server src"
+  },
+  "keywords": [
+    "portfolio",
+    "website",
+    "tatiana",
+    "projects"
+  ],
+  "author": "Tatiana Wang",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
+}
