@@ -30,7 +30,15 @@
   --icon-size: 1.5rem;
 }
 
-/* Reset and base styles */
+
+html {
+  zoom: 1;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+
+/* Update your existing body styles */
 body {
   margin: 0;
   min-height: 100vh;
@@ -39,7 +47,13 @@ body {
   color: var(--text-primary);
   position: relative;
   overflow-x: hidden;
+  /* Force consistent scaling */
+  zoom: 1;
+  transform: scale(1);
+  transform-origin: top left;
 }
+
+
 
 /* Dynamic aesthetic background image using gradients and shapes */
 /*
@@ -89,6 +103,7 @@ body::before {
   min-height: 100vh;
   z-index: 1;
 }
+
 
 .site-title {
   font-size: var(--title-size);
