@@ -12,7 +12,9 @@
   --text-black: #000000;
   
   /* Button Colors */
-  --btn-bg: rgba(30, 58, 138, 0.8);
+  /*--btn-bg: rgba(30, 58, 138, 0.8);*/
+  /*--btn-bg:#5b8ec2;*/
+  --btn-bg:#4984be;
   --btn-bg-hover: rgba(255, 255, 255, 0.9);
   --btn-text: #ffffff;
   --btn-text-hover: #1e3a8a;
@@ -22,7 +24,8 @@
   --shadow-medium: rgba(0, 0, 0, 0.3);
   
   /* Sizes */
-  --title-size: 4rem;
+  --title-size: 8rem;
+  --text-size: 1.5rem;
   --btn-size: 1.2rem;
   --icon-size: 1.5rem;
 }
@@ -39,6 +42,7 @@ body {
 }
 
 /* Dynamic aesthetic background image using gradients and shapes */
+/*
 body::before {
   content: "";
   position: fixed;
@@ -60,6 +64,22 @@ body::before {
   0% { transform: translate(-20px, -15px) rotate(0deg); }
   100% { transform: translate(20px, 15px) rotate(2deg); }
 }
+*/
+body::before {
+  content: "";
+  position: fixed;
+  top: -100px;
+  left: -100px;
+  width: 120vw;
+  height: 120vh;
+  z-index: 0;
+  background: 
+    linear-gradient(120deg, rgba(230, 243, 255, 0.7) 60%, rgba(240, 248, 255, 0.7) 100%),
+    url('assets/images/oceanWaves.jpg') center/cover;
+  animation: oceanFlow 20s ease-in-out infinite alternate;
+  opacity: 0.8;
+  pointer-events: none;
+}
 
 .main-container {
   display: flex;
@@ -73,10 +93,23 @@ body::before {
 .site-title {
   font-size: var(--title-size);
   font-weight: 800;
+  color: #92b8de;
   letter-spacing: 0.05em;
   margin: 0 0 2rem 0;
   text-align: center;
-  text-shadow: 0 4px 24px var(--shadow-medium);
+  position: relative;
+  z-index: 2;
+}
+
+.greetings {
+  font-size: var(--text-size);
+  font-weight: 800;
+  color: #648fba;
+  letter-spacing: 0.05em;
+  margin: 0 0 2rem 0;
+  text-align: center;
+  position: relative;
+  z-index: 2;
 }
 
 .button-container {
@@ -161,7 +194,7 @@ body::before {
   transition: all 0.3s ease;
   font-size: var(--btn-size);
   user-select: none;
-  border: 2px solid rgba(30, 58, 138, 0.1);
+  
   outline: none;
   cursor: pointer;
   min-width: 150px;
