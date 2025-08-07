@@ -2,9 +2,9 @@
   "name": "TatiPortfolio",
   "version": "1.0.0",
   "description": "A modern portfolio website for Tatiana Wang showcasing projects and links to GitHub and LinkedIn.",
-  "main": "src/index.html",
+  "main": "index.html",
   "scripts": {
-    "start": "live-server src"
+    "start": "live-server ."
   },
   "keywords": [
     "portfolio",
