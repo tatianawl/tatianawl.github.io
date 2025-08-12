@@ -14,17 +14,17 @@
   /* Button Colors */
   /*--btn-bg: rgba(30, 58, 138, 0.8);*/
   /*--btn-bg:#5b8ec2;*/
-  --btn-bg:#4984be;
+  --btn-bg:#36628d;
   --btn-bg-hover: rgba(255, 255, 255, 0.9);
   --btn-text: #ffffff;
-  --btn-text-hover: #1e3a8a;
+  --btn-text-hover: #2f437a;
   
   /* Shadow Colors */
   --shadow-light: rgba(0, 0, 0, 0.2);
   --shadow-medium: rgba(0, 0, 0, 0.3);
   
   /* Sizes */
-  --title-size: 8rem;
+  --title-size: 6rem;
   --text-size: 1.5rem;
   --btn-size: 1.2rem;
   --icon-size: 1.5rem;
@@ -53,6 +53,19 @@ body {
   transform-origin: top left;
 }
 
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text-primary);
+  position: relative;
+  overflow-x: hidden;
+  /* Add the fixed background directly to body */
+  background: 
+    linear-gradient(120deg, rgba(230, 243, 255, 0.7) 60%, rgba(240, 248, 255, 0.7) 100%),
+    url('assets/images/oceanWaves.jpg') center/cover no-repeat fixed;
+  background-attachment: fixed;
+}
 
 
 /* Dynamic aesthetic background image using gradients and shapes */
@@ -79,6 +92,8 @@ body::before {
   100% { transform: translate(20px, 15px) rotate(2deg); }
 }
 */
+
+/*
 body::before {
   content: "";
   position: fixed;
@@ -93,8 +108,25 @@ body::before {
   animation: oceanFlow 20s ease-in-out infinite alternate;
   opacity: 0.8;
   pointer-events: none;
-}
+}*/
 
+/*
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  background: 
+    linear-gradient(120deg, rgba(230, 243, 255, 0.7) 60%, rgba(240, 248, 255, 0.7) 100%),
+    url('assets/images/oceanWaves.jpg') center/cover;
+  background-attachment: fixed;
+  opacity: 0.8;
+  pointer-events: none;
+}
+*/
 .main-container {
   display: flex;
   flex-direction: column;
@@ -102,13 +134,14 @@ body::before {
   align-items: center;
   min-height: 100vh;
   z-index: 1;
+  position: relative;
 }
 
-
+/* color: #92b8de;*/
 .site-title {
   font-size: var(--title-size);
   font-weight: 800;
-  color: #92b8de;
+  color: #67819a;
   letter-spacing: 0.05em;
   margin: 0 0 2rem 0;
   text-align: center;
@@ -118,7 +151,7 @@ body::before {
 
 .greetings {
   font-size: var(--text-size);
-  font-weight: 800;
+  font-weight: 600;
   color: #648fba;
   letter-spacing: 0.05em;
   margin: 0 0 2rem 0;
@@ -329,8 +362,61 @@ body::before {
   color: var(--btn-text-hover);
 }
 
+/*
 .back-button {
   text-align: center;
+}*/
+
+
+.back-button {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+}
+
+.back-button .btn {
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  box-shadow: 0 8px 25px rgba(30, 58, 138, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.back-button .btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(30, 58, 138, 0.3);
+}
+
+
+/* Profile photo styles */
+.profile-photo {
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.profile-photo img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: all 0.3s ease;
+}
+
+.profile-photo img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 35px rgba(30, 58, 138, 0.3);
+  border-color: rgba(255, 255, 255, 1);
+}
+
+/* Responsive adjustments for profile photo */
+@media (max-width: 768px) {
+  .profile-photo img {
+    width: 150px;
+    height: 150px;
+  }
 }
 
 /* Responsive adjustments for projects */
